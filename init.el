@@ -45,7 +45,8 @@ This function should only modify configuration layer settings."
      lsp
      markdown
      multiple-cursors
-     org
+     (org :variables
+          org-want-todo-bindings t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -569,6 +570,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  (setq org-agenda-files (list "~/.spacemacs.d/org/todo.org"
+                               "~/.spacemacs.d/org/work.org"))
   ;; Personal Keybindings
   (spacemacs/declare-prefix "o" "own-menu")
   (spacemacs/set-leader-keys
