@@ -1,2 +1,3 @@
-# .spacemacs.d
+# Spacemacs Configuration
+
 my spacemacs config
