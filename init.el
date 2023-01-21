@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -577,6 +577,7 @@ before packages are loaded."
   (spacemacs/set-leader-keys
     "o;" 'spacemacs/comment-or-uncomment-lines
     "ot" (kbd ":term <return>") 
+    "oo" (kbd ":e ~/.spacemacs.d/org/")
   )
 
 )
