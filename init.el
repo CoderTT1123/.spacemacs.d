@@ -50,7 +50,7 @@ This function should only modify configuration layer settings."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
+     ;; spell-checking
      syntax-checking
      ;; version-control
      treemacs)
@@ -569,9 +569,12 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-
-  (setq org-agenda-files (list "~/.spacemacs.d/org/todo.org"
-                               "~/.spacemacs.d/org/work.org"))
+  
+  (setq org-agenda-files (list
+                          (concat dotspacemacs-directory "/org/todo.org")
+                          (concat dotspacemacs-directory "/org/work.org")
+                          )
+   )
   ;; Personal Keybindings
   (spacemacs/declare-prefix "o" "own-menu")
   (spacemacs/set-leader-keys
@@ -580,6 +583,8 @@ before packages are loaded."
     "oo" (kbd ":e ~/.spacemacs.d/org/")
   )
 
+  (kill-buffer "*scratch*")
+  (find-file-noselect (concat dotspacemacs-directory "/memos.txt")) 
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
