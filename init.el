@@ -578,9 +578,12 @@ before packages are loaded."
                           )
    )
 
-  (setq git-userid "CoderTT1123")
   ;; (setq git-usertoken "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")
-  (setq git-usertoken (f-read-text "~/token.txt" 'utf-8))
+  (defun get-string-from-file (filePath)
+    "Return file content as string."
+    (with-temp-buffer
+      (insert-file-contents filePath)
+      (buffer-string)))
 
   ;; Keybinding functions
   (defun memo ()
@@ -606,6 +609,8 @@ before packages are loaded."
   (defun gitpush ()
     (interactive)
     (execute-kbd-macro "pu")
+    (setq git-userid (get-string-from-file "~/git_id.txt"))
+    (setq git-usertoken (get-string-from-file "~/git_token.txt"))
     (run-with-idle-timer 2 nil #'Func1 git-userid)
     (run-with-idle-timer 4 nil #'Func2 git-usertoken)
     )
