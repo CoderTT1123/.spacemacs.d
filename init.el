@@ -45,6 +45,7 @@ This function should only modify configuration layer settings."
      lsp
      markdown
      multiple-cursors
+     (xclipboard :variables xclipboard-enable-cliphist t)
      (org :variables
           org-want-todo-bindings t)
      (shell :variables
