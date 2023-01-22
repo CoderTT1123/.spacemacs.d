@@ -575,16 +575,29 @@ before packages are loaded."
                           (concat dotspacemacs-directory "/org/work.org")
                           )
    )
+
+  (kill-buffer "*scratch*")
+  (setq memobuff (find-file-noselect (concat dotspacemacs-directory "/memos.txt"))) 
+
+  ;; Keybinding functions
+  (defun memo ()
+    (interactive)
+    (switch-to-buffer memobuff) 
+    )
+  
+  (defun org_files ()
+    (interactive)
+    (find-file (concat dotspacemacs-directory "/org"))
+    )
+
   ;; Personal Keybindings
   (spacemacs/declare-prefix "o" "own-menu")
   (spacemacs/set-leader-keys
     "o;" 'spacemacs/comment-or-uncomment-lines
-    "ot" (kbd ":term <return>") 
-    "oo" (kbd ":e ~/.spacemacs.d/org/")
+    "om" 'memo
+    "oo" 'org_files 
   )
 
-  (kill-buffer "*scratch*")
-  (find-file-noselect (concat dotspacemacs-directory "/memos.txt")) 
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
