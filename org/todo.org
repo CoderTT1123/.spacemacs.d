@@ -1,5 +1,0 @@
-* Todo
-** TODO magit
-DEADLINE: <2023-01-30 Mon>
-** TODO org
-** TODO treemacs

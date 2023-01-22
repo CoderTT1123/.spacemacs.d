@@ -571,10 +571,11 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   
   (kill-buffer "*scratch*")
-  (setq memobuff (find-file-noselect (concat dotspacemacs-directory "/memos.txt"))) 
+  (setq private-dir "~/.private_dir/")
+  (setq memobuff (find-file-noselect (concat private-dir "memos.txt"))) 
   (setq org-agenda-files (list
-                          (concat dotspacemacs-directory "/org/todo.org")
-                          (concat dotspacemacs-directory "/org/work.org")
+                          (concat private-dir "org/todo.org")
+                          (concat private-dir "org/work.org")
                           )
    )
 
@@ -592,7 +593,7 @@ before packages are loaded."
   
   (defun org_files ()
     (interactive)
-    (find-file (concat dotspacemacs-directory "/org"))
+    (find-file (concat private-dir "org"))
     )
 
   (defun inputID (gitname)
@@ -608,8 +609,8 @@ before packages are loaded."
   (defun gitpush ()
     (interactive)
     (execute-kbd-macro "pu")
-    (setq git-userid (get-string-from-file "~/git_id.txt"))
-    (setq git-usertoken (get-string-from-file "~/git_token.txt"))
+    (setq git-userid (get-string-from-file (concat private-dir "auth/git_id.txt")))
+    (setq git-usertoken (get-string-from-file (concat private-dir "auth/git_token.txt")))
     (run-with-idle-timer 1 nil #'inputID git-userid)
     (run-with-idle-timer 2 nil #'inputPW git-usertoken)
     )
