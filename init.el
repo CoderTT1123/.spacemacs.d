@@ -570,14 +570,16 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   
+  (kill-buffer "*scratch*")
+  (setq memobuff (find-file-noselect (concat dotspacemacs-directory "/memos.txt"))) 
   (setq org-agenda-files (list
                           (concat dotspacemacs-directory "/org/todo.org")
                           (concat dotspacemacs-directory "/org/work.org")
                           )
    )
 
-  (kill-buffer "*scratch*")
-  (setq memobuff (find-file-noselect (concat dotspacemacs-directory "/memos.txt"))) 
+  (setq git-userid "CoderTT1123")
+  (setq git-usertoken "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")
 
   ;; Keybinding functions
   (defun memo ()
@@ -601,12 +603,10 @@ before packages are loaded."
     (funcall (lookup-key (current-local-map) (kbd "RET")))
     )
   (defun gitpush ()
-    (setq id "CoderTT1123")
-    (setq passwrd "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")
     (interactive)
     (execute-kbd-macro "pu")
-    (run-with-idle-timer 3 nil #'Func1 id)
-    (run-with-idle-timer 6 nil #'Func2 passwrd)
+    (run-with-idle-timer 3 nil #'Func1 git-userid)
+    (run-with-idle-timer 6 nil #'Func2 git-usertoken)
     )
 
 
