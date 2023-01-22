@@ -579,7 +579,7 @@ before packages are loaded."
    )
 
   (setq git-userid "CoderTT1123")
-  (setq git-usertoken "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")
+  (setq git-usertoken "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")
 
   ;; Keybinding functions
   (defun memo ()
@@ -605,8 +605,8 @@ before packages are loaded."
   (defun gitpush ()
     (interactive)
     (execute-kbd-macro "pu")
-    (run-with-idle-timer 3 nil #'Func1 git-userid)
-    (run-with-idle-timer 6 nil #'Func2 git-usertoken)
+    (run-with-idle-timer 2 nil #'Func1 git-userid)
+    (run-with-idle-timer 4 nil #'Func2 git-usertoken)
     )
 
 
