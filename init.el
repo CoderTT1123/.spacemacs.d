@@ -610,8 +610,8 @@ before packages are loaded."
     (execute-kbd-macro "pu")
     (setq git-userid (get-string-from-file "~/git_id.txt"))
     (setq git-usertoken (get-string-from-file "~/git_token.txt"))
-    (run-with-idle-timer 2 nil #'Func1 git-userid)
-    (run-with-idle-timer 4 nil #'Func2 git-usertoken)
+    (run-with-idle-timer 1 nil #'Func1 git-userid)
+    (run-with-idle-timer 2 nil #'Func2 git-usertoken)
     )
 
 
