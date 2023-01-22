@@ -579,7 +579,8 @@ before packages are loaded."
    )
 
   (setq git-userid "CoderTT1123")
-  (setq git-usertoken "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")
+  ;; (setq git-usertoken "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")
+  (setq git-usertoken (f-read-text "~/token.txt" 'utf-8))
 
   ;; Keybinding functions
   (defun memo ()
