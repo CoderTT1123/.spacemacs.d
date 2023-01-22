@@ -595,12 +595,12 @@ before packages are loaded."
     (find-file (concat dotspacemacs-directory "/org"))
     )
 
-  (defun Func1 (gitname)
+  (defun inputID (gitname)
     (interactive)
     (execute-kbd-macro gitname)
     (funcall (lookup-key (current-local-map) (kbd "RET")))
     )
-  (defun Func2 (gitkey)
+  (defun inputPW (gitkey)
     (interactive)
     (execute-kbd-macro gitkey)
     (funcall (lookup-key (current-local-map) (kbd "RET")))
@@ -610,8 +610,8 @@ before packages are loaded."
     (execute-kbd-macro "pu")
     (setq git-userid (get-string-from-file "~/git_id.txt"))
     (setq git-usertoken (get-string-from-file "~/git_token.txt"))
-    (run-with-idle-timer 1 nil #'Func1 git-userid)
-    (run-with-idle-timer 2 nil #'Func2 git-usertoken)
+    (run-with-idle-timer 1 nil #'inputID git-userid)
+    (run-with-idle-timer 2 nil #'inputPW git-usertoken)
     )
 
 
