@@ -578,7 +578,6 @@ before packages are loaded."
                           )
    )
 
-  ;; (setq git-usertoken "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")
   (defun get-string-from-file (filePath)
     "Return file content as string."
     (with-temp-buffer
