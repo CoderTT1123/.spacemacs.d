@@ -45,7 +45,6 @@ This function should only modify configuration layer settings."
      lsp
      markdown
      multiple-cursors
-     (xclipboard :variables xclipboard-enable-cliphist t)
      (org :variables
           org-want-todo-bindings t)
      (shell :variables
@@ -591,14 +590,36 @@ before packages are loaded."
     (find-file (concat dotspacemacs-directory "/org"))
     )
 
+  (defun Func1 (gitname)
+    (interactive)
+    (execute-kbd-macro gitname)
+    (funcall (lookup-key (current-local-map) (kbd "RET")))
+    )
+  (defun Func2 (gitkey)
+    (interactive)
+    (execute-kbd-macro gitkey)
+    (funcall (lookup-key (current-local-map) (kbd "RET")))
+    )
+  (defun gitpush ()
+    (setq id "CoderTT1123")
+    (setq passwrd "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")
+    (interactive)
+    (execute-kbd-macro "pu")
+    (run-with-idle-timer 3 nil #'Func1 id)
+    (run-with-idle-timer 6 nil #'Func2 passwrd)
+    )
+
+
+
   ;; Personal Keybindings
   (spacemacs/declare-prefix "o" "own-menu")
   (spacemacs/set-leader-keys
     "o;" 'spacemacs/comment-or-uncomment-lines
     "om" 'memo
     "oo" 'org_files 
+    "op" 'gitpush
   )
-
+  
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
