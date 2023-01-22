@@ -616,7 +616,6 @@ before packages are loaded."
     )
 
 
-
   ;; Personal Keybindings
   (spacemacs/declare-prefix "o" "own-menu")
   (spacemacs/set-leader-keys
